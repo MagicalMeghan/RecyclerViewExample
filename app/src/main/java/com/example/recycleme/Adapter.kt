@@ -30,5 +30,4 @@ class Adapter(val wordList: List<String>) : RecyclerView.Adapter<RecyclerView.Vi
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         (holder as CustomViewHolder).bind(wordList[position])
     }
-
 }
