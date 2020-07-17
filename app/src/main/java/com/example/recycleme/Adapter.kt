@@ -4,12 +4,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 
-class Adapter(val wordList: List<String>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class Adapter(val wordList: List<String>) : ListAdapter<String, RecyclerView.ViewHolder>(
+    StringDiffCallback()) {
     class CustomViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val wordText:TextView = itemView.findViewById(R.id.word)
-
 
         fun bind(word: String){
             wordText.text = word
@@ -31,4 +33,14 @@ class Adapter(val wordList: List<String>) : RecyclerView.Adapter<RecyclerView.Vi
         (holder as CustomViewHolder).bind(wordList[position])
     }
 
+}
+
+private class StringDiffCallback : DiffUtil.ItemCallback<String>() {
+    override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
+        return oldItem == newItem
+    }
+
+    override fun areContentsTheSame(oldItem: String, newItem: String): Boolean {
+        return oldItem == newItem
+    }
 }

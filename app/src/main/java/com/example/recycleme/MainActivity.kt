@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        wordList = listOf("poppy", "freesia", "rose", "poppy", "lily")
+        wordList = listOf("poppy", "freesia", "rose", "daisy", "lily")
 
         viewManager = LinearLayoutManager(this)
         viewAdapter = Adapter(wordList)
